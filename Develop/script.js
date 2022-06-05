@@ -1,5 +1,7 @@
 var now = moment();
 var currentDay = document.querySelector("#currentDay");
+var hours = $(".hours");
+var currentHour = moment().hour();
 
 function getDayOfWeek() {
     var dayOfWeek = moment().day();
@@ -94,12 +96,43 @@ function displayDate() {
     var dayOfMonth = getDayOfMonth();
 
     // log to confirm
-    console.log(dayOfWeek);
-    console.log(month);
-    console.log(dayOfMonth);
+    // console.log(dayOfWeek);
+    // console.log(month);
+    // console.log(dayOfMonth);
 
     // put them together and display to the top of the page
     currentDay.textContent = (dayOfWeek + ", " + month + " " + dayOfMonth)
 }
 
+var auditTime = function() {
+    $(".hours").each(function(){
+        var hour = parseInt(
+            $(this)
+            .attr("id")
+        )
+
+        if (hour < currentHour){
+            $(this).removeClass("bg-danger");
+            $(this).removeClass("bg-success");
+            $(this).addClass("bg-secondary");
+        }
+        else if (hour === currentHour){
+            $(this).removeClass("bg-success");
+            $(this).removeClass("bg-secondary");
+            $(this).addClass("bg-danger");
+        }
+        else {
+            $(this).addClass("bg-success");
+        }
+    });
+}
+
+$(".hours").click(function(){
+    var hour = event.target
+    var input = document.createElement("textarea");
+    hour.appendChild(input);
+});
+
+setInterval(auditTime, 1800000);
 displayDate();
+auditTime(hours);

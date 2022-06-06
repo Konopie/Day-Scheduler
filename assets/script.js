@@ -1,12 +1,15 @@
-var now = moment();
+// declare variables for functions
 var currentDay = document.querySelector("#currentDay");
 var hours = $(".hours");
 var currentHour = moment().hour();
 var saveBtn = document.getElementsByClassName("savebtn");
 
+// function to conver the day number into words 
 function getDayOfWeek() {
+    // current day of week
     var dayOfWeek = moment().day();
     
+    // convert number day of week into words 
     if (dayOfWeek === 0) {
         return "Sunday";
     }
@@ -33,8 +36,11 @@ function getDayOfWeek() {
     }
 }
 
+// function to convert month numbers to words
 function getMonth() {
+    // get current month
     var month = moment().month();
+    // convert month numbers to words
     if (month === 0) {
         return "January"
     }
@@ -76,20 +82,26 @@ function getMonth() {
     }
 }
 
+// function to get the number day of the month
 function getDayOfMonth() {
+    // get current day of month
     var dayOfMonth = moment().date();
 
+    // if the first add st
     if (dayOfMonth === 1) {
         return (dayOfMonth + "st")
     }
+    // if second add nd
     else if (dayOfMonth === 2) {
         return (dayOfMonth + "nd")
     }
+    // the rest add th
     else {
         return (dayOfMonth + "th")
     }
 }
 
+// display current date 
 function displayDate() {
     // create variables to hold results of get date functions
     var dayOfWeek = getDayOfWeek();
@@ -105,54 +117,73 @@ function displayDate() {
     currentDay.textContent = (dayOfWeek + ", " + month + " " + dayOfMonth)
 }
 
+// check urgentcy
 var auditTime = function() {
+    // repeat for each hour
     $(".hours").each(function(){
+        // get id number
         var hour = parseInt(
             $(this)
             .attr("id")
         )
 
+        // if in past make grey
         if (hour < currentHour){
             $(this).removeClass("bg-danger");
             $(this).removeClass("bg-success");
             $(this).addClass("bg-secondary");
         }
+        // if current hour make red
         else if (hour === currentHour){
             $(this).removeClass("bg-success");
             $(this).removeClass("bg-secondary");
             $(this).addClass("bg-danger");
         }
+        // if not current or past (future) make green
         else {
             $(this).addClass("bg-success");
         }
     });
 }
 
+// create text area on click
 $(".hours").click(function(){
+    // target hour
     var hour = event.target;
+    //create input
     var input = document.createElement("textarea"); 
+    // push text on blur
     input.onblur = pushText;
+    // add input to clicked hour
     hour.appendChild(input);
    
 });
 
+// push text into time block
 function pushText() {
+    // get parents id 
     var id = $(this).parent().attr("id")
     console.log(id);
+    // get input
     var input = $(this).val();
     console.log(input);
+    // set time block text content to input 
     var parentText = $(this).parent().text(input);
     console.log(parentText);
 }
 
+// save text to storage
 function saveEvent() {
+    // get the parents id
     var id = $(this).parent().attr("id");
     console.log(id);
+    // get the text attribute of the parents second child
     var textContent = $(this).parent().children().eq(1).text();
     console.log(textContent)
     localStorage.setItem(id, textContent);
 }
 
+// check each hour for saved tasks
 function retrieveStorage() {
     
     var nine = localStorage.getItem("9am");
@@ -194,6 +225,7 @@ function retrieveStorage() {
     
 }
 
+// run when page loads
 retrieveStorage();
 $(".saveBtn").click(saveEvent);
 setInterval(auditTime, 1800000);

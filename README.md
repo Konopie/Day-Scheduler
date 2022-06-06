@@ -1,4 +1,4 @@
-# Work Day Scheduler Starter Code
+# Work Day Scheduler
 
 ##Day task scheduler that uses moment.js to keep accurate times and saves tasks to local storage for later
 

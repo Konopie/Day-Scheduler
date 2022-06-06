@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/style.css" />
+    <title>Work Day Scheduler</title>
+  </head>
+
+  <body>
+    <header class="jumbotron">
+      <h1 class="display-3">Work Day Scheduler</h1>
+      <p class="lead">A simple calendar app for scheduling your work day</p>
+      <p id="currentDay" class="lead"></p>
+    </header>
+    <div class="container">
+      <!-- Timeblocks go here -->
+    <!-- 9 am -->
+    <sections class="m-1 row justify-content-around" id="9am">
+      <div class="col-1 text-center align-self-center">9 am</div>
+      <div class="col-10 bg-secondary hours" id="9"></div>
+      <button class="col-1 saveBtn"></button>
+    </sections>
+    <!-- 10 am -->
+    <sections class="m-1 row justify-content-around" id="10am">
+      <div class="col-1 text-center align-self-center">10 am</div>
+      <div class="col-10 bg-secondary hours" id="10"></div>
+      <button class="col-1 saveBtn"></button>
+    </sections>
+    <!-- 11 am -->
+    <sections class="m-1 row justify-content-around" id="11am">
+      <div class="col-1 text-center align-self-center"> 11 am</div>
+      <div class="col-10 bg-secondary hours" id="11"></div>
+      <button class="col-1 saveBtn"></button>
+    </sections>
+    <!-- 12 pm -->
+    <sections class="m-1 row justify-content-around" id="12pm">
+      <div class="col-1 text-center align-self-center">12 pm</div>
+      <div class="col-10 bg-secondary hours" id="12"></div>
+      <button class="col-1 saveBtn"></button>
+    </sections>
+    <!-- 1 pm -->
+    <sections class="m-1 row justify-content-around" id="1pm">
+      <div class="col-1 text-center align-self-center">1 pm</div>
+      <div class="col-10 bg-secondary hours" id="13"></div>
+      <button class="col-1 saveBtn"></button>
+    </sections>
+    <!-- 2 pm -->
+    <sections class="m-1 row justify-content-around" id="2pm">
+      <div class="col-1 text-center align-self-center">2 pm</div>
+      <div class="col-10 bg-secondary hours" id="14"></div>
+      <button class="col-1 saveBtn"></button>
+    </sections>
+    <!-- 3 pm -->
+    <sections class="m-1 row justify-content-around" id="3pm">
+      <div class="col-1 text-center align-self-center">3 pm</div>
+      <div class="col-10 bg-secondary hours" id="15"></div>
+      <button class="col-1 saveBtn"></button>
+    </sections>
+    <!-- 4 pm -->
+    <sections class="m-1 row justify-content-around" id="4pm">
+      <div class="col-1 text-center align-self-center">4 pm</div>
+      <div class="col-10 bg-secondary hours" id="16"></div>
+      <button class="col-1 saveBtn"></button>
+    </sections>
+    <!-- 5 pm -->
+    <sections class="m-1 row justify-content-around" id="5pm">
+      <div class="col-1 text-center align-self-center">5 pm</div>
+      <div class="col-10 bg-secondary hours" id="17"></div>
+      <button class="col-1 saveBtn"></button>
+    </sections>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="./assets/script.js"></script>
+  </body>
+</html>
